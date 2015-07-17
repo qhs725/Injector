@@ -1,0 +1,12 @@
+{
+  "title": "Injector",
+  "name": "injector",
+  "version": "0.0.1",
+  "description": "This addon is for injecting code into a webpage",
+  "main": "index.js",
+  "author": "Jay",
+  "engines": {
+    "firefox": ">=38.0a1"
+  },
+  "license": "MIT"
+}
