@@ -1,2 +1,2 @@
 #Injector
-This addon is for injecting code into a webpage
+an addon that allows a user to inject CSS on a page with little to no coding knowledge

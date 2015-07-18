@@ -24,7 +24,14 @@ var button = buttons.ActionButton({
 });
 
 function handleClick(state) {
-  var child = document.createElement("div");
+	var tabs = require('sdk/tabs');
+
+tabs.on('activate', function () {
+	/* var child = document.createElement("div");
 document.body.appendChild(child); 
 document.body.style.backgroundColor = "#D93600";
+*/
+  console.log('active: ' + tabs.activeTab.url);
+});
+  
 }

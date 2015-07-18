@@ -1,14 +1,13 @@
 {
-    "license": "MIT", 
-    "description": "Extension that allows user interaction to inject CSS on a webpage", 
-    "engines": {
-        "firefox": ">=38.0a1", 
-        "fennec": ">=38.0a1"
-    }, 
-    "author": "Jay", 
-    "title": "Injector", 
-    "version": "0.0.1", 
-    "main": "index.js", 
-    "id": "jid1-vqtJmfY2l9UVag", 
-    "name": "injector"
+  "title": "Injector",
+  "name": "injector",
+  "version": "0.0.1",
+  "description": "an addon that allows a user to inject CSS on a page with little to no coding knowledge",
+  "main": "index.js",
+  "author": "Jay",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT"
 }
