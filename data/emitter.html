@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title></title>
+</head>
+<body>
+<div id="horsecowpantsterrorfireyes">
+<style type="text/css">
+#horsecowpantsterrorfireyes{
+	width: 300px;
+	height: 600px;
+	background: #DDEDF0;
+	font-size: 16px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+</style>
+<label style="color: black; font-size:16px; position:absolute;">Body Background Color</label>
+<br>
+<input class="color" id="ohmygodmyfaceisonfirehelpmeplease">
+</input>
+<button onclick="changebackgroundcolorthingy('body')">Submit</button>
+<br>
+<label style="color: black; font-size:16px; position:absolute;">Body Text Color</label>
+<br>
+<input class="color" id="ohmygodmyfaceisonfire234234helpmeplease">
+</input>
+<button onclick="changebackgroundcol234234orthingy('body')">Submit</button>
+<br>
+<label style="color: black; font-size:16px; position:absolute;">Body Text Size</label>
+<br>
+<input type="text" id="thisistheidthatwillbeusedforthefontsizebox"/>
+<button onclick="setFontSizeToTheNumberEntered('body')">Submit</button>
+<button onclick="upfontsizebyone('body')">^</button>
+<button onclick="downfontsizebtone('body')">v</button>
+<br>
+<script type="text/javascript">
+	
+
+
+	function changebackgroundcolorthingy(element){
+		if (element == 'body')
+		{
+		var bckcolor = document.getElementById('ohmygodmyfaceisonfirehelpmeplease').value;
+		// document.body.style.background = "#" + bckcolor;
+		addon.port.emit('body-color', bckcolor);
+
+		}
+		
+		else if (element == 'head')
+		{
+		var bckcolor = document.getElementById('ohmygodmyfaceisonfirehelpmeplease').value;
+		// document.body.style.background = "#" + bckcolor;
+		addon.port.emit('body-color', bckcolor);
+		}
+
+	}
+
+	function changebackgroundcol234234orthingy(element){
+		if (element == 'body')
+		{
+		var bckcolor = document.getElementById('ohmygodmyfaceisonfire234234helpmeplease').value;
+		// document.body.style.color = "#" +  bckcolor;
+		addon.port.emit('font-color', bckcolor);
+		}
+
+
+		else if (element == 'head')
+		{
+		var bckcolor = document.getElementById('ohmygodmyfaceisonfire234234helpmeplease').value;
+		// document.body.style.color = "#" +  bckcolor;
+		addon.port.emit('font-color', bckcolor);
+
+		}
+	}
+
+	function setFontSizeToTheNumberEntered(element)
+	{
+		if (element == 'body')
+		{
+		var numberEntered = document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value;
+		// document.body.style.fontSize = numberEntered + "px";
+		addon.port.emit('font-size', numberEntered);
+
+		}
+
+		else if (element == 'head')
+		{
+		var numberEntered = document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value;
+		// document.body.style.fontSize = numberEntered + "px";
+				addon.port.emit('font-size', numberEntered);
+
+		}
+
+	}
+
+	function upfontsizebyone(element)
+	{
+		if (element == 'body')
+		{
+		var currentfontsize = parseInt(document.body.style.fontSize, 10);
+		if (isNaN(currentfontsize))
+		{
+			currentfontsize = 14;
+		}
+		currentfontsize++;
+		document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value = currentfontsize;
+		// document.body.style.fontSize = currentfontsize + "px";
+				addon.port.emit('increase-font', "");
+
+		}
+
+		else if (element == 'head')
+		{
+		var currentfontsize = parseInt(document.body.style.fontSize, 10);
+		if (isNaN(currentfontsize))
+		{
+			currentfontsize = 14;
+		}
+		currentfontsize++;
+		document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value = currentfontsize;
+						addon.port.emit('increase-font', "");
+
+		// document.body.style.fontSize = currentfontsize + "px";
+		}
+	}
+
+	function downfontsizebtone(element)
+	{
+		if (element == 'body')
+		{
+		var currentfontsize = parseInt(document.body.style.fontSize, 10);
+		if (isNaN(currentfontsize))
+		{
+			currentfontsize = 14;
+		}
+		currentfontsize--;
+		document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value = currentfontsize;
+		addon.port.emit('decrease-font', "");
+
+		// document.body.style.fontSize = currentfontsize + "px";
+	}
+
+	else if (element == 'head')
+		{
+		var currentfontsize = parseInt(document.body.style.fontSize, 10);
+		if (isNaN(currentfontsize))
+		{
+			currentfontsize = 14;
+		}
+		currentfontsize--;
+		document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value = currentfontsize;
+		addon.port.emit('decrease-font', "");
+
+		// document.body.style.fontSize = currentfontsize + "px";
+	}
+
+	}
+
+
+</script>
+<script type="text/javascript" src="jscolor/jscolor.js"></script>
+</div>
+this is text and stuff
+</body>
+</html>

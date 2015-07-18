@@ -29,14 +29,14 @@ var button = ToggleButton({
 
 // Data for panel
 var panel = panels.Panel({
-    width: 250,
-    height: 400,
-    contentURL: self.data.url("dropDownPanelOptions.html"),
+    width: 300,
+    height: 200,
+    contentURL: self.data.url("emitter.html"),
     onHide: handleHide
 });
 
-/*var sidePanel = panels.Panel({
-    contentURL: self.data.url(""),
+/* var sidePanel = panels.Panel({
+    contentURL: self.data.url("emitter.html"),
     onHide: handleHide
 }); */
 
@@ -67,7 +67,33 @@ panel.on("show", function() {
 // the content script. The message payload is the text the user
 // entered.
 // In this implementation we'll just log the text to the console.
-panel.port.on("", function (text) {
+panel.port.on("body-color", function (text) {
     console.log(text);
-    text_entry.hide();
+    text = "#" + text;
+    //text_entry.hide();
 });
+
+panel.port.on("font-color", function (text) {
+    console.log(text);
+    text = "#" + text;
+    //text_entry.hide();
+});
+
+panel.port.on("font-size", function (text) {
+    console.log(text);
+    text = text + "px";
+    //text_entry.hide();
+});
+
+panel.port.on("decrease-font", function (text) {
+    console.log(text);
+    text = text + "px";
+    //text_entry.hide();
+});
+
+panel.port.on("increase-font", function (text) {
+    console.log(text);
+    text = text + "px";
+    //text_entry.hide();
+});
+
