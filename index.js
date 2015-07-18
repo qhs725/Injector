@@ -30,8 +30,8 @@ var button = ToggleButton({
 
 // Data for panel
 var panel = panels.Panel({
-    width: 300,
-    height: 200,
+    //width: 300,
+    //height: 200,
     contentURL: self.data.url("emitter.html"),
     onHide: handleHide
 });
@@ -84,13 +84,21 @@ panel.port.on("font-color", function (text) {
 
 panel.port.on("font-size", function (text) {
     console.log(text);
+    require("sdk/tabs").activeTab.attach({
+    contentScript: 'document.body.style.fontSize= "' + text + 'px";'
+    });
 });
 
 panel.port.on("decrease-font", function (text) {
     console.log(text);
+    require("sdk/tabs").activeTab.attach({
+    contentScript: 'document.body.style.fontSize= "' + text + '";'
+    });
 });
 
 panel.port.on("increase-font", function (text) {
     console.log(text);
+    require("sdk/tabs").activeTab.attach({
+    contentScript: 'document.body.style.fontSize= "' + text + '";'
+    });
 });
-

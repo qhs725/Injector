@@ -8,13 +8,12 @@
 <div id="horsecowpantsterrorfireyes">
 <style type="text/css">
 #horsecowpantsterrorfireyes{
-	width: 300px;
-	height: 600px;
-	background: #DDEDF0;
 	font-size: 16px;
 	position: absolute;
 	top: 0px;
 	left: 0px;
+        margin: 0, auto;
+        width: 100%;
 }
 </style>
 <label style="color: black; font-size:16px; position:absolute;">Body Background Color</label>
@@ -38,7 +37,7 @@
 <br>
 <script type="text/javascript">
 	
-
+var currentfontsize = 14;
 
 	function changebackgroundcolorthingy(element){
 		if (element == 'body')
@@ -49,13 +48,6 @@
 
 		}
 		
-		else if (element == 'head')
-		{
-		var bckcolor = document.getElementById('ohmygodmyfaceisonfirehelpmeplease').value;
-		// document.body.style.background = "#" + bckcolor;
-		addon.port.emit('body-color', bckcolor);
-		}
-
 	}
 
 	function changebackgroundcol234234orthingy(element){
@@ -66,14 +58,6 @@
 		addon.port.emit('font-color', bckcolor);
 		}
 
-
-		else if (element == 'head')
-		{
-		var bckcolor = document.getElementById('ohmygodmyfaceisonfire234234helpmeplease').value;
-		// document.body.style.color = "#" +  bckcolor;
-		addon.port.emit('font-color', bckcolor);
-
-		}
 	}
 
 	function setFontSizeToTheNumberEntered(element)
@@ -82,15 +66,8 @@
 		{
 		var numberEntered = document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value;
 		// document.body.style.fontSize = numberEntered + "px";
+                currentfontsize = numberEntered;
 		addon.port.emit('font-size', numberEntered);
-
-		}
-
-		else if (element == 'head')
-		{
-		var numberEntered = document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value;
-		// document.body.style.fontSize = numberEntered + "px";
-				addon.port.emit('font-size', numberEntered);
 
 		}
 
@@ -100,30 +77,10 @@
 	{
 		if (element == 'body')
 		{
-		var currentfontsize = parseInt(document.body.style.fontSize, 10);
-		if (isNaN(currentfontsize))
-		{
-			currentfontsize = 14;
-		}
 		currentfontsize++;
 		document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value = currentfontsize;
-		// document.body.style.fontSize = currentfontsize + "px";
-				addon.port.emit('increase-font', "");
+		addon.port.emit('increase-font', currentfontsize + "px"); 
 
-		}
-
-		else if (element == 'head')
-		{
-		var currentfontsize = parseInt(document.body.style.fontSize, 10);
-		if (isNaN(currentfontsize))
-		{
-			currentfontsize = 14;
-		}
-		currentfontsize++;
-		document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value = currentfontsize;
-						addon.port.emit('increase-font', "");
-
-		// document.body.style.fontSize = currentfontsize + "px";
 		}
 	}
 
@@ -131,38 +88,16 @@
 	{
 		if (element == 'body')
 		{
-		var currentfontsize = parseInt(document.body.style.fontSize, 10);
-		if (isNaN(currentfontsize))
-		{
-			currentfontsize = 14;
-		}
 		currentfontsize--;
 		document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value = currentfontsize;
-		addon.port.emit('decrease-font', "");
+		addon.port.emit('decrease-font', currentfontsize + "px"); 
 
-		// document.body.style.fontSize = currentfontsize + "px";
-	}
-
-	else if (element == 'head')
-		{
-		var currentfontsize = parseInt(document.body.style.fontSize, 10);
-		if (isNaN(currentfontsize))
-		{
-			currentfontsize = 14;
 		}
-		currentfontsize--;
-		document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value = currentfontsize;
-		addon.port.emit('decrease-font', "");
-
-		// document.body.style.fontSize = currentfontsize + "px";
-	}
-
 	}
 
 
 </script>
 <script type="text/javascript" src="jscolor/jscolor.js"></script>
 </div>
-this is text and stuff
 </body>
 </html>
