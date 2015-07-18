@@ -13,6 +13,7 @@ var { ToggleButton } = require('sdk/ui/button/toggle');
 var panels = require("sdk/panel");
 var sidePanel = require("sdk/panel");
 var self = require("sdk/self");
+var tabs = require("sdk/tabs");
 
 var button = ToggleButton({
     id: "my-button",
@@ -69,31 +70,27 @@ panel.on("show", function() {
 // In this implementation we'll just log the text to the console.
 panel.port.on("body-color", function (text) {
     console.log(text);
-    text = "#" + text;
-    //text_entry.hide();
+    require("sdk/tabs").activeTab.attach({
+contentScript: 'document.body.style.background= ' + '"#' + text + '";'
+    });
 });
 
 panel.port.on("font-color", function (text) {
     console.log(text);
-    text = "#" + text;
-    //text_entry.hide();
+    require("sdk/tabs").activeTab.attach({
+    contentScript: 'document.body.style.color= ' + '"#' + text + '";'
+    });
 });
 
 panel.port.on("font-size", function (text) {
     console.log(text);
-    text = text + "px";
-    //text_entry.hide();
 });
 
 panel.port.on("decrease-font", function (text) {
     console.log(text);
-    text = text + "px";
-    //text_entry.hide();
 });
 
 panel.port.on("increase-font", function (text) {
     console.log(text);
-    text = text + "px";
-    //text_entry.hide();
 });
 
