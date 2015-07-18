@@ -1,0 +1,13 @@
+{
+  "title": "Injector",
+  "name": "injector",
+  "version": "0.0.1",
+  "description": "Extension that allows user interaction to inject CSS on a webpage",
+  "main": "index.js",
+  "author": "Jay",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT"
+}
