@@ -56,40 +56,31 @@ panel.on("show", function() {
 panel.port.on("body-color", function (text) {
     console.log(text);
 
-    //
-    // This stuff will set the css
-    //
-    require("sdk/tabs").activeTab.attach({
-    contentScript: 'document.body.style.background= ' + '"#' + text + '";'
-    });
+    //require("sdk/tabs").activeTab.attach({
+    //     contentScript: 'document.body.style.background= ' + '"#' + text + '";'
+    //});
 
-    // 
-    // Css is no longer being set at this point
-    //
+    setBackgroundColor('#' + text);
 });
 
 
 // same as previous function
 panel.port.on("font-color", function (text) {
     console.log(text); 
-    require("sdk/tabs").activeTab.attach({
-    contentScript: 'document.body.style.color= ' + '"#' + text + '";'
-    });
+    setFontColor('#' + text);
 });
 
 // same as previous function
 panel.port.on("font-size", function (text) {
     console.log(text);
-    require("sdk/tabs").activeTab.attach({
-    contentScript: 'document.body.style.fontSize= "' + text + 'px";'
-    });
+    setFontSize(text);
 });
 
 // same as previous function
 panel.port.on("decrease-font", function (text) {
     console.log(text);
     require("sdk/tabs").activeTab.attach({
-    contentScript: 'document.body.style.fontSize= "' + text + '";'
+        contentScript: 'document.body.style.fontSize= "' + text + '";'
     });
 });
 
@@ -97,8 +88,30 @@ panel.port.on("decrease-font", function (text) {
 panel.port.on("increase-font", function (text) {
     console.log(text);
     require("sdk/tabs").activeTab.attach({
-    contentScript: 'document.body.style.fontSize= "' + text + '";'
+        contentScript: 'document.body.style.fontSize= "' + text + '";'
     });
 });
 
 
+
+// Simple function to set our css elements
+// Called with 
+// setBackGroundColor("#000111");
+// where the hex value is a string
+function setBackgroundColor(hexColor) {
+    require("sdk/tabs").activeTab.attach({
+        contentScript: 'document.body.style.background= "' + hexColor + '";'
+    });
+}
+
+function setFontColor(hexColor) {
+    require("sdk/tabs").activeTab.attach({
+        contentScript: 'document.body.style.color= "' + hexColor + '";'
+    });
+}
+
+function setFontSize(fontSize) {
+    require("sdk/tabs").activeTab.attach({
+    contentScript: 'document.body.style.fontSize= "' + fontSize + 'px";'
+    });
+}
