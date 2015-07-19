@@ -34,9 +34,23 @@ function handleChange(state) {
         panel.show({
             position: button
         });
+		
+		var setting1 = require('sdk/simple-prefs').prefs['AddonBGcolor'];
+		//require("sdk/tabs").activeTab.attach({contentScript: 'alert("' + setting1 + '");'});
+		
+		tabs.on("ready", function(tab) {
+			worker = tab.attach({
+			contentScriptFile: self.data.url("emitter.js")
+			});
+				worker.port.emit("bgcolor", setting1);
+		});
     }
+	
 }
 
+
+
+	
 // Hide button
 function handleHide() {
       button.state('window', {checked: false});

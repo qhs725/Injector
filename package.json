@@ -13,11 +13,11 @@
     "name": "stapler",
 	
 	"preferences": [{
-        "name": "somePreference",
-        "title": "Some preference title",
-        "description": "Some short description for the preference",
-        "type": "string",
-        "value": "this is the default string value"
+        "name": "AddonBGcolor",
+        "title": "Addon BG color",
+        "description": "changes the color to the addon button dropdown's menu.",
+        "type": "color",
+        "value": "#000000"
     },
     {
         "description": "How many of them we have.",
