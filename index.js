@@ -19,14 +19,16 @@ var button = ToggleButton({
     onChange: handleChange
 });
 
-/*
+
 var ui = require("sdk/ui");
 var sidebar = ui.Sidebar({
+	width: 245,
   id: 'my-sidebar',
-  title: 'My sidebar',
-  url: require("sdk/self").data.url("sidebar.html")
+  title: 'Code Stapler',
+  url: require("sdk/self").data.url("advanced.html"),
+  onHide: handleHide
 });
-*/
+
 
 // Data for drop down menu 
 var panel = panels.Panel({
@@ -42,7 +44,9 @@ function handleChange(state) {
         panel.show({
             position: button
         });
+		
     }
+	
 }
 
 // Hide button
