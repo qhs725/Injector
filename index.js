@@ -95,6 +95,18 @@ panel.port.on("increase-font", function (text) {
     });
 });
 
+//opens settings
+panel.port.on("go-to-settings", function (text) {    
+		const {Cu} = require('chrome');
+const {Services} = Cu.import('resource://gre/modules/Services.jsm');
+Services.wm.getMostRecentWindow('navigator:browser').BrowserOpenAddonsMgr('addons://detail/stapler%40jetpack');
+});
+
+
+
+
+
+
 
 
 // Simple function to set our css elements
