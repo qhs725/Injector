@@ -5,6 +5,7 @@ var panels = require("sdk/panel");
 var self = require("sdk/self");
 var tabs = require("sdk/tabs");
 var urls = require("sdk/url");
+var simpleStorage = require("sdk/simple-storage");
 
 // button in the menu bar
 var button = ToggleButton({
@@ -63,7 +64,7 @@ panel.port.on("body-color", function (text) {
     setBackgroundColor('#' + text);
 
     // test
-    saveValue("background-color", text);
+    saveValue("bgcolor", text);
 });
 
 
@@ -103,12 +104,6 @@ Services.wm.getMostRecentWindow('navigator:browser').BrowserOpenAddonsMgr('addon
 });
 
 
-
-
-
-
-
-
 // Simple function to set our css elements
 // Called with 
 // setBackGroundColor("#000111");
@@ -132,9 +127,21 @@ function setFontSize(fontSize) {
 }
 
 function saveValue(baseKey, value) {
+    localStorage = require('localStorage');
+        localStorage.setItem(baseKey, value);
+    /*
     var URL = require('sdk/url').URL;
-    var tabs = require('sdk/tabs');
-    var url = URL(tabs.activeTab.url);
-    
+    var thisUrl = URL(tabs.activeTab.url);
     console.log(tabs.activeTab.url);
+    console.log(thisUrl.host);
+    var baseUrl = thisUrl.host;
+
+    if(!localStorage.getItem(baseKey)) {
+        populateStorage();
+    } else {
+        setStyles();
+        localStorage.setItem(baseKey, value);
+        console.log("saved " + value + ' to ' + baseKey)
+    }
+    */
 }

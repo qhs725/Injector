@@ -1,29 +1,34 @@
 {
-    "license": "MIT", 
-    "description": "A Firefox extension to allow users to inject CSS onto a web page with little to no knowledge of coding.", 
-    "engines": {
-        "firefox": ">=38.0a1", 
-        "fennec": ">=38.0a1"
-    }, 
-    "author": "Jaysp656", 
-    "title": "Code Stapler", 
-    "version": "0.1.0", 
-    "main": "index.js", 
-    "id": "stapler@jetpack", 
-    "name": "stapler",
-	
-	"preferences": [{
-        "name": "somePreference",
-        "title": "Some preference title",
-        "description": "Some short description for the preference",
-        "type": "string",
-        "value": "this is the default string value"
+  "license": "MIT",
+  "description": "A Firefox extension to allow users to inject CSS onto a web page with little to no knowledge of coding.",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "author": "Jaysp656",
+  "title": "Code Stapler",
+  "version": "0.1.0",
+  "main": "index.js",
+  "id": "stapler@jetpack",
+  "name": "stapler",
+  "preferences": [
+    {
+      "name": "somePreference",
+      "title": "Some preference title",
+      "description": "Some short description for the preference",
+      "type": "string",
+      "value": "this is the default string value"
     },
     {
-        "description": "How many of them we have.",
-        "name": "myInteger",
-        "type": "integer",
-        "value": 8,
-        "title": "How Many?"
-    }]
+      "description": "How many of them we have.",
+      "name": "myInteger",
+      "type": "integer",
+      "value": 8,
+      "title": "How Many?"
+    }
+  ],
+  "dependencies": {
+    "localStorage": "^1.0.3",
+    "localstorage": "0.0.0"
+  }
 }

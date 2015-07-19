@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Advanced Styling</title>
+</head>
+<body>
+<textarea id="thisisthetextareaforthecss"></textarea>
+<br>
+<button onclick="submitthechangesforthecss()">Submit Changes</button>
+
+<script type="text/javascript">
+	
+	function submitthechangesforthecss() {
+		addon.port.emit('custom-css-code', document.getElementById('thisisthetextareaforthecss').value);
+	}
+</script>
+</body>
+</html>
