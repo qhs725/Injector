@@ -2,14 +2,14 @@
 // var myFirstVariable = "Jet fuel can't melt steel beams";
 var { ToggleButton } = require('sdk/ui/button/toggle');
 var panels = require("sdk/panel");
-var sidePanel = require("sdk/panel");
 var self = require("sdk/self");
 var tabs = require("sdk/tabs");
+var urls = require("sdk/url");
 
 // button in the menu bar
 var button = ToggleButton({
-    id: "my-button",
-    label: "my button",
+    id: "Code_Stapler",
+    label: "Code Stapler",
     icon: {
         "16": "./icon-16.png",
         "32": "./icon-32.png",
@@ -61,6 +61,9 @@ panel.port.on("body-color", function (text) {
     //});
 
     setBackgroundColor('#' + text);
+
+    // test
+    saveValue("background-color", text);
 });
 
 
@@ -114,4 +117,12 @@ function setFontSize(fontSize) {
     require("sdk/tabs").activeTab.attach({
     contentScript: 'document.body.style.fontSize= "' + fontSize + 'px";'
     });
+}
+
+function saveValue(baseKey, value) {
+    var URL = require('sdk/url').URL;
+    var tabs = require('sdk/tabs');
+    var url = URL(tabs.activeTab.url);
+    
+    console.log(tabs.activeTab.url);
 }
