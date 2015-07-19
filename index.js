@@ -1,6 +1,6 @@
 
 // var myFirstVariable = "Jet fuel can't melt steel beams";
-var { ToggleButton } = require('sdk/ui/button/toggle');
+//var { ToggleButton } = require('sdk/ui/button/toggle');
 var panels = require("sdk/panel");
 var self = require("sdk/self");
 var tabs = require("sdk/tabs");
@@ -8,7 +8,7 @@ var urls = require("sdk/url");
 var simpleStorage = require("sdk/simple-storage");
 
 // button in the menu bar
-var button = ToggleButton({
+var button = require('sdk/ui/button/toggle').ToggleButton({
     id: "Code_Stapler",
     label: "Code Stapler",
     icon: {
@@ -18,6 +18,17 @@ var button = ToggleButton({
     },
     onChange: handleChange
 });
+
+var ui = require("sdk/ui");
+
+/*
+//Sidebar =
+var sidebar = ui.Sidebar({
+  id: 'my-sidebar',
+  title: 'My sidebar',
+  url: require("sdk/self").data.url("sidebar.html")
+});
+*/
 
 
 
@@ -64,7 +75,7 @@ panel.port.on("body-color", function (text) {
     setBackgroundColor('#' + text);
 
     // test
-    saveValue("bgcolor", text);
+   // saveValue("bgcolor", text);
 });
 
 
@@ -139,8 +150,8 @@ function setFontSize(fontSize) {
 }
 
 function saveValue(baseKey, value) {
-    localStorage = require('localStorage');
-        localStorage.setItem(baseKey, value);
+  //  localStorage = require('localStorage');
+    //    localStorage.setItem(baseKey, value);
     /*
     var URL = require('sdk/url').URL;
     var thisUrl = URL(tabs.activeTab.url);
