@@ -291,10 +291,14 @@ var currentfontsize = 14;
 	function changebackgroundcolorthingy(element){
 		if (element == 'body')
 		{
-		var bckcolor = document.getElementById('ohmygodmyfaceisonfirehelpmeplease').value;
-		// document.body.style.background = "#" + bckcolor;
-		addon.port.emit('body-color', bckcolor);
 
+			if (/^[0-9A-F]{6}$/i.test(document.getElementById('ohmygodmyfaceisonfirehelpmeplease').value))
+			{
+				var bckcolor = document.getElementById('ohmygodmyfaceisonfirehelpmeplease').value;
+			
+				// document.body.style.background = "#" + bckcolor;
+				addon.port.emit('body-color', bckcolor);
+			}
 		}
 		
 	}
@@ -302,9 +306,13 @@ var currentfontsize = 14;
 	function changebackgroundcol234234orthingy(element){
 		if (element == 'body')
 		{
-		var bckcolor = document.getElementById('ohmygodmyfaceisonfire234234helpmeplease').value;
-		// document.body.style.color = "#" +  bckcolor;
-		addon.port.emit('font-color', bckcolor);
+
+			if (/^[0-9A-F]{6}$/i.test(document.getElementById('ohmygodmyfaceisonfire234234helpmeplease').value))
+			{
+				var bckcolor = document.getElementById('ohmygodmyfaceisonfire234234helpmeplease').value;
+				// document.body.style.color = "#" +  bckcolor;
+				addon.port.emit('font-color', bckcolor);
+			}
 		}
 
 	}
@@ -313,10 +321,14 @@ var currentfontsize = 14;
 	{
 		if (element == 'body')
 		{
-		var numberEntered = document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value;
-		// document.body.style.fontSize = numberEntered + "px";
+
+			if (/^\d+$/.test(document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value))
+			{
+				var numberEntered = document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value;
+				// document.body.style.fontSize = numberEntered + "px";
                 currentfontsize = numberEntered;
-		addon.port.emit('font-size', numberEntered);
+				addon.port.emit('font-size', numberEntered);
+			}
 
 		}
 
@@ -326,6 +338,7 @@ var currentfontsize = 14;
 	{
 		if (element == 'body')
 		{
+			
 		currentfontsize++;
 		document.getElementById("thisistheidthatwillbeusedforthefontsizebox").value = currentfontsize;
 		addon.port.emit('increase-font', currentfontsize + "px"); 
