@@ -35,23 +35,9 @@ function handleChange(state) {
         panel.show({
             position: button
         });
-		
-		var setting1 = require('sdk/simple-prefs').prefs['AddonBGcolor'];
-		//require("sdk/tabs").activeTab.attach({contentScript: 'alert("' + setting1 + '");'});
-		
-		tabs.on("ready", function(tab) {
-			worker = tab.attach({
-			contentScriptFile: self.data.url("emitter.js")
-			});
-			//	worker.port.emit("bgcolor", setting1);
-		});
     }
-	
 }
 
-
-
-	
 // Hide button
 function handleHide() {
       button.state('window', {checked: false});
@@ -108,6 +94,18 @@ panel.port.on("increase-font", function (text) {
     require("sdk/tabs").activeTab.attach({
         contentScript: 'document.body.style.fontSize= "' + text + '";'
     });
+});
+
+panel.port.on("reset-page", function (text) {
+    console.log("refreshing-page");
+    //document.location.reload(true);
+    require("sdk/tabs").activeTab.attach({
+        contentScript: 'document.location.reload(true);'
+    });
+});
+
+panel.port.on("go-to-advanced", function (text) {
+    console.log(text);
 });
 
 //opens settings
