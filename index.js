@@ -22,8 +22,8 @@ var button = ToggleButton({
 
 // Data for drop down menu 
 var panel = panels.Panel({
-    width: 300,
-    height: 200,
+    width: 245,
+    height: 280,
     contentURL: self.data.url("emitter.html"),
     onHide: handleHide
 });
