@@ -19,7 +19,14 @@ var button = ToggleButton({
     onChange: handleChange
 });
 
-
+/*
+var ui = require("sdk/ui");
+var sidebar = ui.Sidebar({
+  id: 'my-sidebar',
+  title: 'My sidebar',
+  url: require("sdk/self").data.url("sidebar.html")
+});
+*/
 
 // Data for drop down menu 
 var panel = panels.Panel({
