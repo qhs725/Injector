@@ -43,7 +43,7 @@ function handleChange(state) {
 			worker = tab.attach({
 			contentScriptFile: self.data.url("emitter.js")
 			});
-				worker.port.emit("bgcolor", setting1);
+			//	worker.port.emit("bgcolor", setting1);
 		});
     }
 	
