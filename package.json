@@ -9,6 +9,6 @@
     "title": "Code Stapler", 
     "version": "0.1.0", 
     "main": "index.js", 
-    "id": "93fa4f65-54e4-109c-92fb-9807abc8de4f@jetpack", 
+    "id": "stapler@jetpack", 
     "name": "stapler"
 }
