@@ -90,3 +90,8 @@ var currentfontsize = 14;
 	{
   		document.body.style.background = message;
 	}
+
+	function youclickedchangethepage()
+	{
+		addon.port.emit('go-to-advanced', "");
+	}
