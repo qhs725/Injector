@@ -5,7 +5,29 @@ var panels = require("sdk/panel");
 var self = require("sdk/self");
 var tabs = require("sdk/tabs");
 var urls = require("sdk/url");
+var { Cc, Ci, Cu } = require("chrome");
 var simpleStorage = require("sdk/simple-storage");
+
+/*
+//Import components needed for sqlite file creation
+ Cu.import("resource://gre/modules/FileUtils.jsm");
+ Cu.import("resource://gre/modules/Services.jsm");
+//Create sqlite file
+var file = FileUtils.getFile("ProfD", ["codeStapler.sqlite"]);
+var dbConn = Services.storage.openDatabase(file); // Will also create the file if it does not exist
+
+//Create table
+dbConn.executeSimpleSQL("CREATE TABLE table_name (column_name INTEGER)");
+
+var numb = 1234;
+//Create column(s) and add value(s)
+dbConn.executeSimpleSQL("INSERT INTO table_name (column_name)"				
+				+ " VALUES (" + numb + ")");
+
+
+//Read statement/write to file (not working just yet)
+//dbConn.executeSimpleSQL("SELECT * FROM table_name INTO OUTFILE 'C:\codeStapler.csv' FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"n\";");
+*/
 
 // button in the menu bar
 var button = ToggleButton({
@@ -44,6 +66,7 @@ function handleChange(state) {
         panel.show({
             position: button
         });
+		
 		
     }
 	
